@@ -1,12 +1,13 @@
 from tkinter import ttk, Tk, Label
 from tkinter.filedialog import askopenfilename
 from tkinter.messagebox import showinfo, showerror
-from zipfile import ZipFile 
+from zipfile import ZipFile
 import os
 import time
 import shutil
-from report_generator import generate_report
 import webbrowser
+from report_generator import generate_report
+from parser_basic_info import parse_user_info
 
 def file_picker() -> str:
     """ Spawns a file select GUI that lets user select a zip file, and returns its path. """
@@ -70,6 +71,10 @@ def main():
     # Parse data starting here
     user_data = {}
 
+    update_status("Parsing User Information", status, root)
+    user_data = parse_user_info(user_data)
+    update_progress(progress, 5, root)
+
     update_status("Generating Report", status, root)
     generate_report(user_data)
     update_progress(progress, 5, root)
@@ -79,7 +84,7 @@ def main():
     update_progress(progress, 5, root)
 
     showinfo("Success", "The tool has finished generating your report, it will be automatically opened in your preferred web browser.")
-    report_path = os.getcwd() + "/report_website_template/index.html"
+    report_path = os.getcwd() + "/report_generated/index.html"
     webbrowser.open(report_path)
 
 def update_status(new_status: str, label: Label, gui_root: Tk):
@@ -91,7 +96,5 @@ def update_status(new_status: str, label: Label, gui_root: Tk):
 def update_progress(progress_bar: ttk.Progressbar, increment: int, gui_root: Tk):
     progress_bar.step(increment)
     gui_root.update()
-
-
 
 main()
