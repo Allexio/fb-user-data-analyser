@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Facebook Data Analyser Screenshot][product-screenshot]](https://example.com)
 
 This is a tool that analyses data downloadable by a Facebook user and generates a report in a nice, readable format.
 
