@@ -6,8 +6,12 @@ import os
 import time
 import shutil
 import webbrowser
-from report_generator import generate_report
 from parser_basic_info import parse_user_info
+from parser_messages import parse_messages
+from parser_posts import parse_posts
+from parser_comments import parse_comments
+from parser_profile_picture import profile_picture_mover
+from report_generator import generate_report 
 
 def file_picker() -> str:
     """ Spawns a file select GUI that lets user select a zip file, and returns its path. """
@@ -38,6 +42,7 @@ def delete_temp():
 def main():
     """ Main thread of the program, handles the GUI and calls to separate modules """
     root = Tk()
+    root.title("Facebook Data Analyser")
     progress = ttk.Progressbar(root, orient='horizontal', length=700)
     progress.config(mode="determinate", maximum=100)
     progress.pack()
@@ -61,7 +66,7 @@ def main():
     
 
     update_status("Unzipping Facebook data archive", status, root)
-    zip_opener(zip_path)   
+    zip_opener(zip_path)
     update_progress(progress, 25, root)
 
     update_status("Validating Data", status, root)
@@ -75,8 +80,24 @@ def main():
     user_data = parse_user_info(user_data)
     update_progress(progress, 5, root)
 
+    update_status("Parsing Messages", status, root)
+    user_data = parse_messages(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Parsing Posts", status, root)
+    user_data = parse_posts(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Parsing comments", status, root)
+    user_data = parse_comments(user_data)
+    update_progress(progress, 5, root)
+
     update_status("Generating Report", status, root)
     generate_report(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Importing Profile Picture", status, root)
+    profile_picture_mover()
     update_progress(progress, 5, root)
 
     update_status("Deleting Temporary Folder", status, root)
