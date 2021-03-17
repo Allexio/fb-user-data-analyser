@@ -9,8 +9,10 @@ def json_file_converter(file_path: str) -> dict:
     python_dict = literal_eval(python_str)
     return python_dict
 
-def epoch_to_year(posix_time: str) -> str:
+def epoch_to_year(posix_time: int) -> str:
     """ Takes a timestamp in posix format and returns the corresponding year """
+    # just in case number provided is a string
+    posix_time = int(posix_time)
     year = datetime.utcfromtimestamp(posix_time).strftime('%Y')
     return year
 

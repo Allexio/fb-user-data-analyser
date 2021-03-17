@@ -28,6 +28,13 @@ def generate_report(user_data: dict):
             with open(generated_dir+"/"+file_path, "w") as html_file:
                 html_file.write(generated_html)
 
+    # also replace keywords in the script file
+    with open(template_dir + "/assets/scripts/main.js", "r", encoding="utf8") as script_file:
+        script_str = script_file.read()
+    generated_script = keyword_replacer(user_data, script_str)
+    with open(generated_dir + "/assets/scripts/main.js", "w", encoding="utf8") as script_file:
+        script_file.write(generated_script)
+
 
 def keyword_replacer(user_data: dict, html: str) -> str:
     """ Takes the user data dict and an html file as string and replaces keywords with real values. """

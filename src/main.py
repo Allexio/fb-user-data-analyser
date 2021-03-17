@@ -11,6 +11,7 @@ from parser_messages import parse_messages
 from parser_posts import parse_posts
 from parser_comments import parse_comments
 from parser_profile_picture import profile_picture_mover
+from parser_photos import parse_photos
 from report_generator import generate_report 
 
 def file_picker() -> str:
@@ -90,6 +91,10 @@ def main():
 
     update_status("Parsing comments", status, root)
     user_data = parse_comments(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Parsing photos", status, root)
+    user_data = parse_photos(user_data)
     update_progress(progress, 5, root)
 
     update_status("Generating Report", status, root)
