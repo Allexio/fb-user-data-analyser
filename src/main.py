@@ -6,7 +6,8 @@ import os
 import time
 import shutil
 import webbrowser
-from parser_basic_info import parse_user_info
+from parser_profile_info import parse_user_info
+from parser_friends import parse_friends
 from parser_messages import parse_messages
 from parser_posts import parse_posts
 from parser_comments import parse_comments
@@ -91,6 +92,10 @@ def main():
 
     update_status("Parsing comments", status, root)
     user_data = parse_comments(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Parsing friends", status, root)
+    user_data = parse_friends(user_data)
     update_progress(progress, 5, root)
 
     update_status("Parsing photos", status, root)
