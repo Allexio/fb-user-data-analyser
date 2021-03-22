@@ -6,6 +6,9 @@ import os
 import time
 import shutil
 import webbrowser
+from parser_facebook_ads import parse_ad_interactions
+from parser_interests import parse_interests
+from parser_off_facebook_tracking import parse_off_facebook_activities
 from parser_profile_info import parse_user_info
 from parser_friends import parse_friends
 from parser_messages import parse_messages
@@ -80,6 +83,18 @@ def main():
 
     update_status("Parsing User Information", status, root)
     user_data = parse_user_info(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Parsing Off-Facebook activities", status, root)
+    user_data = parse_off_facebook_activities(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Parsing advertisement interactions", status, root)
+    user_data = parse_ad_interactions(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Parsing Interests", status, root)
+    user_data = parse_interests(user_data)
     update_progress(progress, 5, root)
 
     update_status("Parsing Messages", status, root)

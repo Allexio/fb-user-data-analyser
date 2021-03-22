@@ -25,7 +25,7 @@ def generate_report(user_data: dict):
                 html_str = html_file.read()
             # replace keywords with actual values
             generated_html = keyword_replacer(user_data, html_str)
-            with open(generated_dir+"/"+file_path, "w") as html_file:
+            with open(generated_dir+"/"+file_path, "w", encoding="utf8") as html_file:
                 html_file.write(generated_html)
 
     # also replace keywords in the script file
