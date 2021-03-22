@@ -41,8 +41,8 @@ def keyword_replacer(user_data: dict, html: str) -> str:
     for keyword, value in user_data.items():
         print(keyword)
         print(value)
-        print("replacing " + keyword + " with " + value)
+        print("replacing " + keyword + " with " + str(value))
         keyword = "{" + keyword + "}"
-        html = html.replace(keyword, value)
+        html = html.replace(keyword, str(value))
     #html = html.replace("user_name", user_data["user_name"])
     return html
