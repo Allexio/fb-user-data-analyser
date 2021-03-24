@@ -1,4 +1,4 @@
-from tkinter import ttk, Tk, Label
+from tkinter import Button, ttk, Tk, Label
 from tkinter.filedialog import askopenfilename
 from tkinter.messagebox import showinfo, showerror
 from zipfile import ZipFile
@@ -46,8 +46,29 @@ def delete_temp():
 
 def main():
     """ Main thread of the program, handles the GUI and calls to separate modules """
+    #window.destroy()
     root = Tk()
     root.title("Facebook Data Analyser")
+
+    welcome_message = """Thanks for choosing to use the FB Data Analyser! \n
+    This tool requires you to first download your Facebook data from the Facebook website.\n
+    If you have not already done this, you can very easily do it by: 
+    1) going on the Facebook website
+    2) clicking on the drop down arrow top right
+    3) clicking on "settings and privacy"
+    4) clicking on "privacy shortcuts"
+    5) scrolling down to the "your facebook data" section
+    6) clicking on "access my facebook data"
+    7) clicking on the "download my data" link
+    8) select "all data", "JSON file" (photo quality is irrelevant) and click create file.
+    
+    Facebook will then send you an e-mail when your data is ready to download, simply follow the instructions provided in the e-mail.
+    You do not need to unzip this data, the tool will do this for you."""
+
+    info_text = Label(root, text="Please select your facebook data file.")
+    info_text.pack()
+
+
     progress = ttk.Progressbar(root, orient='horizontal', length=700)
     progress.config(mode="determinate", maximum=100)
     progress.pack()
@@ -64,11 +85,13 @@ def main():
     
     # Positions the window in the center of the page.
     root.geometry("+{}+{}".format(positionRight, positionDown))
-    
+
+    showinfo("Facebook Data Analyser Startup", welcome_message)
     showinfo("Info", "Please select your Facebook zip file...")
     update_status("Selecting a Facebook data zip file", status, root)
     zip_path = file_picker()
     
+    info_text["text"] = "The tool is now running, this can take up to a few minutes, depending on the amount of data and speed of your computer."
 
     update_status("Unzipping Facebook data archive", status, root)
     zip_opener(zip_path)
