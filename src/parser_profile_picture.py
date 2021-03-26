@@ -9,7 +9,7 @@ def profile_picture_mover():
     profile_pictures_path = ""
     for path in listdir(photos_path):
         #print(path)
-        if "ProfilePictures" in path or "Photosdeprofil" in path:
+        if "profilepictures" in path.lower() or "photosdeprofil" in path.lower():
             profile_pictures_path = path
             break
 

@@ -83,7 +83,7 @@ def main():
     # Gets both half the screen width/height and window width/height
     positionRight = int(root.winfo_screenwidth()/2 - windowWidth/2 - 300)
     positionDown = int(root.winfo_screenheight()/2 - windowHeight/2)
-    
+
     # Positions the window in the center of the page.
     root.geometry("+{}+{}".format(positionRight, positionDown))
 
@@ -91,7 +91,7 @@ def main():
     showinfo("Info", "Please select your Facebook zip file...")
     update_status("Selecting a Facebook data zip file", status, root)
     zip_path = file_picker()
-    
+
     info_text["text"] = "The tool is now running, this can take up to a few minutes, depending on the amount of data and speed of your computer."
 
     update_status("Unzipping Facebook data archive", status, root)
@@ -101,7 +101,7 @@ def main():
     update_status("Validating Data", status, root)
     validate_uploaded_data()
     update_progress(progress, 5, root)
-    
+
     # Parse data starting here
     user_data = {}
 

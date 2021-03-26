@@ -4,7 +4,11 @@ from os import getcwd
 def parse_location_history(user_data: dict) -> dict:
     """ Goes through locations and translates a list of locations into html string """
     locations_path = getcwd() + "/temp/location/location_history.json"
-    location_list = utils.json_file_converter(locations_path)["location_history"]
+    try:
+        location_list = utils.json_file_converter(locations_path)["location_history"]
+    except FileNotFoundError:
+        user_data["location_pings"] = "nodata"
+        return user_data
 
     html_start = "L.marker(["
     html_mid = "]).addTo(mymap).bindPopup(\""

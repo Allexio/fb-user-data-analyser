@@ -8,10 +8,14 @@ def parse_user_info(user_data: dict) -> dict:
     profile_data = info["profile"]
     user_name = profile_data["name"]["full_name"]
     join_year = utils.epoch_to_year(profile_data["registration_timestamp"])
-    relationship_status = profile_data["relationship"]["status"]
-    if "partner" in profile_data["relationship"]:
-        relationship_status += " with " + profile_data["relationship"]["partner"]
-    relationship_timestamp = utils.epoch_to_year(profile_data["relationship"]["timestamp"])
+    if "relationship" in profile_data:
+        relationship_status = profile_data["relationship"]["status"]
+        if "partner" in profile_data["relationship"]:
+            relationship_status += " with " + profile_data["relationship"]["partner"]
+        relationship_timestamp = utils.epoch_to_year(profile_data["relationship"]["timestamp"])
+    else:
+        relationship_status = "No data"
+        relationship_timestamp = "No data"
 
     # instantiate a list of years [1996, 1997, 1998, ... , 2021]
     current_year = datetime.date.today().year
