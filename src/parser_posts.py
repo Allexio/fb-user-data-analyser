@@ -11,6 +11,12 @@ def parse_posts(user_data: dict) -> dict:
     posts_path = getcwd() + "/temp/posts/your_posts_1.json"
     post_list = utils.json_file_converter(posts_path)
     post_total = len(post_list)
+
+    if not isinstance(post_list, list):
+        user_data["nbr_of_posts"] = "1"
+        user_data["monthly_posts"] = str(posts_per_month)
+        return user_data
+
     for post in post_list:
         post_timestamp = post["timestamp"]
         post_month, post_year = utils.epoch_to_year_and_month(post_timestamp)
@@ -24,5 +30,3 @@ def parse_posts(user_data: dict) -> dict:
     user_data["monthly_posts"] = str(monthly_post_list)
 
     return user_data
-
-
