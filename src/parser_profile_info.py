@@ -33,12 +33,13 @@ def parse_user_info(user_data: dict) -> dict:
     ex_2 = "None"
     ex_3 = "None"
     
-    if len(profile_data["previous_relationships"]) > 0:
-        ex_1 = profile_data["previous_relationships"][0]["name"]
-    if len(profile_data["previous_relationships"]) > 1:
-        ex_2 = profile_data["previous_relationships"][1]["name"]
-    if len(profile_data["previous_relationships"]) > 2:
-        ex_3 = profile_data["previous_relationships"][2]["name"]
+    if "previous_relationships" in profile_data:
+        if len(profile_data["previous_relationships"]) > 0:
+            ex_1 = profile_data["previous_relationships"][0]["name"]
+        if len(profile_data["previous_relationships"]) > 1:
+            ex_2 = profile_data["previous_relationships"][1]["name"]
+        if len(profile_data["previous_relationships"]) > 2:
+            ex_3 = profile_data["previous_relationships"][2]["name"]
     
 
     # fill in the info
