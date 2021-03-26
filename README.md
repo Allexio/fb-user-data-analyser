@@ -95,7 +95,7 @@ If you want to launch the python project, you will need python 3.X.
 3. Launch the project with Python
 
    ```bat
-   python ./src/main.py
+   python ./src/fb_data_analyser.py
    ```
 
 <!-- LICENSE -->

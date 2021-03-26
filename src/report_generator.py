@@ -28,11 +28,17 @@ def generate_report(user_data: dict):
             with open(generated_dir+"/"+file_path, "w", encoding="utf8") as html_file:
                 html_file.write(generated_html)
 
-    # also replace keywords in the script file
+    # also replace keywords in the script files
     with open(template_dir + "/assets/scripts/main.js", "r", encoding="utf8") as script_file:
         script_str = script_file.read()
     generated_script = keyword_replacer(user_data, script_str)
     with open(generated_dir + "/assets/scripts/main.js", "w", encoding="utf8") as script_file:
+        script_file.write(generated_script)
+    # TODO: Remove this redundant code and refactor.
+    with open(template_dir + "/assets/scripts/location.js", "r", encoding="utf8") as script_file:
+        script_str = script_file.read()
+    generated_script = keyword_replacer(user_data, script_str)
+    with open(generated_dir + "/assets/scripts/location.js", "w", encoding="utf8") as script_file:
         script_file.write(generated_script)
 
 

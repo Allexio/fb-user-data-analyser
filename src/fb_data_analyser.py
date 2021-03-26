@@ -8,6 +8,7 @@ import shutil
 import webbrowser
 from parser_facebook_ads import parse_ad_interactions
 from parser_interests import parse_interests
+from parser_location import parse_location_history
 from parser_off_facebook_tracking import parse_off_facebook_activities
 from parser_profile_info import parse_user_info
 from parser_friends import parse_friends
@@ -46,7 +47,7 @@ def delete_temp():
 
 def main():
     """ Main thread of the program, handles the GUI and calls to separate modules """
-    #window.destroy()
+
     root = Tk()
     root.title("Facebook Data Analyser")
 
@@ -106,6 +107,10 @@ def main():
 
     update_status("Parsing User Information", status, root)
     user_data = parse_user_info(user_data)
+    update_progress(progress, 5, root)
+
+    update_status("Parsing Location History", status, root)
+    user_data = parse_location_history(user_data)
     update_progress(progress, 5, root)
 
     update_status("Parsing Off-Facebook activities", status, root)

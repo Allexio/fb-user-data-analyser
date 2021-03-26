@@ -14555,7 +14555,7 @@ legend {
 }
 
 .scroll-area-md {
-    height: 280px;
+    height: 300px;
     overflow-x: hidden
 }
 
@@ -21307,6 +21307,8 @@ button.toast-close-button {
     bottom: 12px;
     left: 12px
 }
+
+#mapid { height: 450px }
 
 #toast-container {
     position: fixed;
