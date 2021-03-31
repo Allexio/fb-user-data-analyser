@@ -7,6 +7,7 @@ import time
 import shutil
 import webbrowser
 from parser_facebook_ads import parse_ad_interactions
+from parser_facial_recognition import parse_facial_recognition
 from parser_interests import parse_interests
 from parser_location import parse_location_history
 from parser_off_facebook_tracking import parse_off_facebook_activities
@@ -17,6 +18,7 @@ from parser_posts import parse_posts
 from parser_comments import parse_comments
 from parser_profile_picture import profile_picture_mover
 from parser_photos import parse_photos
+from processor_nudity_check import check_for_nudity, unsafe_photo_mover
 from report_generator import generate_report 
 
 def file_picker() -> str:
@@ -107,11 +109,15 @@ def main():
 
     update_status("Parsing User Information", status, root)
     user_data = parse_user_info(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 3, root)
 
     update_status("Parsing Location History", status, root)
     user_data = parse_location_history(user_data)
     update_progress(progress, 5, root)
+
+    update_status("Parsing Facial Recognition Data", status, root)
+    user_data = parse_facial_recognition(user_data)
+    update_progress(progress, 2, root)
 
     update_status("Parsing Off-Facebook activities", status, root)
     user_data = parse_off_facebook_activities(user_data)
@@ -119,7 +125,7 @@ def main():
 
     update_status("Parsing advertisement interactions", status, root)
     user_data = parse_ad_interactions(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 2, root)
 
     update_status("Parsing Interests", status, root)
     user_data = parse_interests(user_data)
@@ -127,7 +133,7 @@ def main():
 
     update_status("Parsing Messages", status, root)
     user_data = parse_messages(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 10, root)
 
     update_status("Parsing Posts", status, root)
     user_data = parse_posts(user_data)
@@ -135,22 +141,30 @@ def main():
 
     update_status("Parsing comments", status, root)
     user_data = parse_comments(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 2, root)
 
     update_status("Parsing friends", status, root)
     user_data = parse_friends(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 3, root)
 
     update_status("Parsing photos", status, root)
     user_data = parse_photos(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 3, root)
+
+    update_status("Scanning photos for unsafe content", status, root)
+    user_data = check_for_nudity(user_data)
+    update_progress(progress, 10, root)
 
     update_status("Generating Report", status, root)
     generate_report(user_data)
     update_progress(progress, 5, root)
 
-    update_status("Importing Profile Picture", status, root)
+    update_status("Moving Profile Picture", status, root)
     profile_picture_mover()
+    update_progress(progress, 5, root)
+
+    update_status("Moving Unsafe Pictures", status, root)
+    unsafe_photo_mover(user_data)
     update_progress(progress, 5, root)
 
     update_status("Deleting Temporary Folder", status, root)
@@ -164,7 +178,7 @@ def main():
 def update_status(new_status: str, label: Label, gui_root: Tk):
     label["text"] = new_status
     gui_root.update()
-    time.sleep(0.7) # wait half a sec so people can actually see the message
+    time.sleep(0.5) # wait half a sec so people can actually see the message
     
 
 def update_progress(progress_bar: ttk.Progressbar, increment: int, gui_root: Tk):

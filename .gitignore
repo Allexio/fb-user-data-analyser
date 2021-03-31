@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 # Generated Data
-report_generated/*
+report_generated/
+temp/

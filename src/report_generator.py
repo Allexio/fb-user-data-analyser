@@ -45,10 +45,8 @@ def generate_report(user_data: dict):
 def keyword_replacer(user_data: dict, html: str) -> str:
     """ Takes the user data dict and an html file as string and replaces keywords with real values. """
     for keyword, value in user_data.items():
-        print(keyword)
-        print(value)
-        print("replacing " + keyword + " with " + str(value))
+        if "html" not in keyword:
+            print("replacing " + keyword + " with " + str(value))
         keyword = "{" + keyword + "}"
         html = html.replace(keyword, str(value))
-    #html = html.replace("user_name", user_data["user_name"])
     return html
