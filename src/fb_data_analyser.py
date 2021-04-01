@@ -11,6 +11,7 @@ from parser_facial_recognition import parse_facial_recognition
 from parser_interests import parse_interests
 from parser_location import parse_location_history
 from parser_off_facebook_tracking import parse_off_facebook_activities
+from parser_peer_group import parse_peer_group
 from parser_profile_info import parse_user_info
 from parser_friends import parse_friends
 from parser_messages import parse_messages
@@ -125,23 +126,23 @@ def main():
 
     update_status("Parsing advertisement interactions", status, root)
     user_data = parse_ad_interactions(user_data)
-    update_progress(progress, 2, root)
+    update_progress(progress, 1, root)
 
     update_status("Parsing Interests", status, root)
     user_data = parse_interests(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 4, root)
 
     update_status("Parsing Messages", status, root)
     user_data = parse_messages(user_data)
-    update_progress(progress, 10, root)
+    update_progress(progress, 8, root)
 
     update_status("Parsing Posts", status, root)
     user_data = parse_posts(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 3, root)
 
     update_status("Parsing comments", status, root)
     user_data = parse_comments(user_data)
-    update_progress(progress, 2, root)
+    update_progress(progress, 1, root)
 
     update_status("Parsing friends", status, root)
     user_data = parse_friends(user_data)
@@ -150,6 +151,10 @@ def main():
     update_status("Parsing photos", status, root)
     user_data = parse_photos(user_data)
     update_progress(progress, 3, root)
+
+    update_status("Parsing peer group", status, root)
+    user_data = parse_peer_group(user_data)
+    update_progress(progress, 1, root)
 
     update_status("Scanning photos for unsafe content", status, root)
     user_data = check_for_nudity(user_data)
@@ -161,11 +166,11 @@ def main():
 
     update_status("Moving Profile Picture", status, root)
     profile_picture_mover()
-    update_progress(progress, 5, root)
+    update_progress(progress, 3, root)
 
     update_status("Moving Unsafe Pictures", status, root)
     unsafe_photo_mover(user_data)
-    update_progress(progress, 5, root)
+    update_progress(progress, 3, root)
 
     update_status("Deleting Temporary Folder", status, root)
     delete_temp()

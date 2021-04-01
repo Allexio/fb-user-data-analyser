@@ -45,6 +45,12 @@ def parse_user_info(user_data: dict) -> dict:
         if len(profile_data["previous_relationships"]) > 2:
             ex_3 = profile_data["previous_relationships"][2]["name"]
 
+    # find number of family member connections on Facebook
+    if "family_members" in profile_data:
+        nbr_of_family_members = len(profile_data["family_members"])
+    else:
+        nbr_of_family_members = 0
+
     # fill in the info
     user_data["user_name"] = user_name
     user_data["join_year"] = join_year
