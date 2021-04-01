@@ -44,7 +44,6 @@ def parse_user_info(user_data: dict) -> dict:
             ex_2 = profile_data["previous_relationships"][1]["name"]
         if len(profile_data["previous_relationships"]) > 2:
             ex_3 = profile_data["previous_relationships"][2]["name"]
-    
 
     # fill in the info
     user_data["user_name"] = user_name
@@ -56,4 +55,5 @@ def parse_user_info(user_data: dict) -> dict:
     user_data["ex#1"] = ex_1
     user_data["ex#2"] = ex_2
     user_data["ex#3"] = ex_3
+    user_data["nbr_of_family_members"] = nbr_of_family_members
     return user_data

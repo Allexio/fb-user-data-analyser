@@ -8,7 +8,6 @@ def profile_picture_mover():
     photos_path = getcwd() + "/temp/photos_and_videos/"
     profile_pictures_path = ""
     for path in listdir(photos_path):
-        #print(path)
         if "profilepictures" in path.lower() or "photosdeprofil" in path.lower():
             profile_pictures_path = path
             break

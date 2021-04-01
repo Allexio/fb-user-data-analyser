@@ -5999,6 +5999,14 @@ a.close.disabled {
     position: relative
 }
 
+.carousel-center {
+    height: 800px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 .carousel.pointer-event {
     touch-action: pan-y
 }

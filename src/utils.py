@@ -15,7 +15,6 @@ def epoch_to_year(posix_time: int) -> str:
     posix_time = int(posix_time)
     year = datetime.utcfromtimestamp(posix_time).strftime('%Y')
     month = datetime.utcfromtimestamp(posix_time).strftime('%m')
-    print(month)
     return year
 
 def epoch_to_year_and_month(posix_time: int) -> str:
