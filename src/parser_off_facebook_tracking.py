@@ -6,6 +6,7 @@ def parse_off_facebook_activities(user_data: dict) -> dict:
     off_facebook_activities_path = getcwd() + "/temp/ads_and_businesses/your_off-facebook_activity.json"
     off_facebook_activity_list = utils.json_file_converter(off_facebook_activities_path)["off_facebook_activity"]
 
+
     number_of_websites_tracking_the_user = 0
     number_of_applications_tracking_the_user = 0
 
@@ -16,7 +17,7 @@ def parse_off_facebook_activities(user_data: dict) -> dict:
             number_of_websites_tracking_the_user += 1
         else:
             number_of_applications_tracking_the_user += 1
-        events_per_tracker[tracking_entity["name"]] = len(tracking_entity["events"])
+        events_per_tracker[tracking_entity["name"].encode('latin_1').decode('utf8')] = len(tracking_entity["events"])
 
     # sort dict of events per tracker by descending value order
     events_per_tracker = {k: v for k, v in sorted(events_per_tracker.items(), reverse=True, key=lambda item: item[1])}

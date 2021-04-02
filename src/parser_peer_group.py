@@ -12,6 +12,9 @@ def parse_peer_group(user_data: dict) -> dict:
         return user_data
     peer_group = peer_group_info["friend_peer_group"]
 
+   
+    peer_group = peer_group.encode('latin_1').decode('utf8')
+
     user_data["peer_group"] = peer_group
 
     return user_data

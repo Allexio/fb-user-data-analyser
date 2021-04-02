@@ -9,6 +9,9 @@ def parse_interests(user_data: dict) -> dict:
     user_interests = utils.json_file_converter(interests_path)["topics"]
     interest_categories = utils.json_file_converter(interest_categories_path)
 
+    for interest in user_interests:
+        interest = interest.encode('latin_1').decode('utf8')
+
     interest_category_count = {}
     interest_category_total = {}
 
@@ -58,6 +61,6 @@ def html_interest_list_builder(user_interests: list, interest_categories: dict) 
                 corresponding_category = category
             elif interest in politicians:
                 corresponding_category = "Political Orientation"
-        html_interests += start_html + interest + mid_html + corresponding_category + end_html
+        html_interests += start_html + interest.encode('latin_1').decode('utf8') + mid_html + corresponding_category + end_html
 
     return html_interests

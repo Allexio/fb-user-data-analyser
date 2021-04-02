@@ -3,7 +3,7 @@ from datetime import datetime
 
 def json_file_converter(file_path: str) -> dict:
     """ Opens a json file and returns a corresponding python list or dictionary object """
-    with open(file_path, "r", encoding="utf8") as json_file:
+    with open(file_path, "r", encoding="latin1") as json_file:
         json_str = json_file.read()
     python_str = json_str.replace("true", "True").replace("false", "False").replace("null", "None")
     python_dict = literal_eval(python_str)
@@ -14,7 +14,6 @@ def epoch_to_year(posix_time: int) -> str:
     # just in case number provided is a string
     posix_time = int(posix_time)
     year = datetime.utcfromtimestamp(posix_time).strftime('%Y')
-    month = datetime.utcfromtimestamp(posix_time).strftime('%m')
     return year
 
 def epoch_to_year_and_month(posix_time: int) -> str:

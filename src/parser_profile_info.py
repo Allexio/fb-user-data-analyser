@@ -9,7 +9,7 @@ def parse_user_info(user_data: dict) -> dict:
     user_name = profile_data["name"]["full_name"]
     join_year = utils.epoch_to_year(profile_data["registration_timestamp"])
     if "relationship" in profile_data:
-        relationship_status = profile_data["relationship"]["status"]
+        relationship_status = profile_data["relationship"]["status"].encode('latin_1').decode('utf8')
         if "partner" in profile_data["relationship"]:
             relationship_status += " with " + profile_data["relationship"]["partner"]
         relationship_timestamp = utils.epoch_to_year(profile_data["relationship"]["timestamp"])
