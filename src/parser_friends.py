@@ -33,7 +33,9 @@ def parse_friends(user_data: dict) -> dict:
         for removed_friend in removed_friends_list["deleted_friends"]:
             month, year = utils.epoch_to_year_and_month(removed_friend["timestamp"])
             friends_per_month[int(year)][month] -= 1
+        removed_friends_total = len(removed_friends_list["deleted_friends"])
     except FileNotFoundError:
+        removed_friends_total = 0
         print("Could not parse removed friend data.")
 
     monthly_friend_list = []
@@ -51,7 +53,7 @@ def parse_friends(user_data: dict) -> dict:
     for i in range(len(monthly_friend_list)):
         dunbar_list.append(150)
 
-    removed_friends_total = len(removed_friends_list["deleted_friends"])
+    
     user_data["nbr_of_removed_friends"] = utils.number_prettify(removed_friends_total)
     user_data["monthly_friends"] = monthly_friend_list
     user_data["dunbars_number"] = dunbar_list
