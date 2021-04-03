@@ -172,7 +172,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-4">
-                            <div class="card mb-3 widget-content" data-toggle="tooltip" data-placement="bottom" title="All posts you make are saved by facebook along with timestamps (up to second accuracy).">
+                            <div class="card mb-3 widget-content" data-toggle="tooltip" data-placement="bottom"
+                                title="All posts you make are saved by facebook along with timestamps (up to second accuracy).">
                                 <div class="widget-content-wrapper">
                                     <div class="widget-content-left">
                                         <div class="widget-heading">Friend requests rejected</div>
@@ -214,7 +215,7 @@
                                                                 pointBackgroundColor: '#0000FF',
                                                                 borderWidth: 1,
                                                                 radius: 2
-                                                            },{
+                                                            }, {
                                                                 label: "Dunbar's number",
                                                                 data: {dunbars_number},
                                                                 borderColor: '#FFA500',
@@ -229,9 +230,46 @@
                                                             legend: {
                                                                 display: false,
                                                             },
-                                                            axis: {
+                                                            responsive: true,
+                                                            maintainAspectRatio: false,
+                                                            title: { 
+                                                                display: false,
+                                                            },
+                                                            legend: {
                                                                 display: false
-                                                            }}
+                                                            },
+                                                            layout: {
+                                                                padding: {
+                                                                    left: 10,
+                                                                    right: 10,
+                                                                    top: 10,
+                                                                    bottom: 0
+                                                                }
+                                                            },
+                                                            tooltips: {
+                                                                mode: "index",
+                                                                intersect: false
+                                                            },
+                                                            hover: {
+                                                                mode: "nearest",
+                                                                intersect: true
+                                                            },
+                                                            pointBackgroundColor: "#fff",
+                                                            pointBorderWidth: "2",
+                                                            scales: {
+                                                                xAxes: [{
+                                                                    display: false,
+                                                                    scaleLabel: {
+                                                                        display: !0,
+                                                                        labelString: "Month" }
+                                                                    }],
+                                                                yAxes: [{
+                                                                    display: true,
+                                                                    scaleLabel: {
+                                                                        display: !0}
+                                                                }]
+                                                            }
+                                                        }
                                                     });
                                                 </script>
                                             </div>
@@ -245,7 +283,12 @@
                         <div class="col-md-12 col-lg-12">
                             <div class="mb-3 card">
                                 <div style="margin-left: 10px; margin-top: 5px; display: block; font-size: large;">
-                                    <p>The line at 150 is in reference to <a target="_blank" href="https://en.wikipedia.org/wiki/Dunbar%27s_number">Dunbar's Number</a>, a suggested cognitive limit to the number of people with whom one can maintain stable social relationships. The initial proposed number was 150; others argue the number varies from 100 to 250 depending on the individual. Check out the wikipedia page for more links to research papers on the subject.</p>
+                                    <p>The line at 150 is in reference to <a target="_blank"
+                                            href="https://en.wikipedia.org/wiki/Dunbar%27s_number">Dunbar's Number</a>,
+                                        a suggested cognitive limit to the number of people with whom one can maintain
+                                        stable social relationships. The initial proposed number was 150; others argue
+                                        the number varies from 100 to 250 depending on the individual. Check out the
+                                        wikipedia page for more links to research papers on the subject.</p>
                                 </div>
                             </div>
                         </div>

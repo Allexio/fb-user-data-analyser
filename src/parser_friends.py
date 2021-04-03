@@ -30,9 +30,6 @@ def parse_friends(user_data: dict) -> dict:
 
     try:
         removed_friends_list = utils.json_file_converter(removed_friends_path)
-        for removed_friend in removed_friends_list["deleted_friends"]:
-            month, year = utils.epoch_to_year_and_month(removed_friend["timestamp"])
-            friends_per_month[int(year)][month] -= 1
         removed_friends_total = len(removed_friends_list["deleted_friends"])
     except FileNotFoundError:
         removed_friends_total = 0

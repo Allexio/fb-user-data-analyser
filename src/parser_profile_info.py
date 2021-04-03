@@ -6,7 +6,7 @@ def parse_user_info(user_data: dict) -> dict:
     json_path = getcwd() + "/temp/profile_information/profile_information.json"
     info = utils.json_file_converter(json_path)
     profile_data = info["profile"]
-    user_name = profile_data["name"]["full_name"]
+    user_name = profile_data["name"]["full_name"].encode('latin_1').decode('utf8')
     join_year = utils.epoch_to_year(profile_data["registration_timestamp"])
     if "relationship" in profile_data:
         relationship_status = profile_data["relationship"]["status"].encode('latin_1').decode('utf8')

@@ -196,7 +196,80 @@
                                     <div class="tab-pane fade active show" id="tab-eg-55">
                                         <div class="widget-chart p-3">
                                             <div style="height: 350px">
-                                                <canvas id="line-chart"></canvas>
+                                                
+                                                <canvas id="main-line-chart" height="90px" width="400px"></canvas>
+                                                <script src="assets/scripts/chart.js-2.9.4/dist/Chart.js"></script>
+                                                <script>
+                                                    var ctx = document.getElementById('main-line-chart').getContext('2d');
+                                                    var myChart = new Chart(ctx, {
+                                                        type: 'line',
+                                                        data: {
+                                                            labels: {month_list},
+                                                            datasets: [{
+                                                                label: 'Messages',
+                                                                data: {monthly_messages},
+                                                                borderColor: "#6f42c1",
+                                                                pointBackgroundColor: "#6f42c1",
+                                                                fill: false
+                                                            }, {
+                                                                label: "Photos",
+                                                                data: {monthly_photos},
+                                                                borderColor: "#007bff",
+                                                                pointBackgroundColor: "#007bff",
+                                                                fill: false
+                                                            }, {
+                                                                label: "Posts",
+                                                                data: {monthly_posts},
+                                                                borderColor: "#28a745",
+                                                                pointBackgroundColor: "#28a745",
+                                                                fill: false
+                                                            }]
+                                                        },
+                                                        options: {
+                                                            legend: {
+                                                                display: false,
+                                                            },
+                                                            responsive: true,
+                                                            maintainAspectRatio: !1,
+                                                            title: { 
+                                                                display: false,
+                                                            },
+                                                            legend: {
+                                                                display: false
+                                                            },
+                                                            layout: {
+                                                                padding: {
+                                                                    left: 10,
+                                                                    right: 10,
+                                                                    top: 10,
+                                                                    bottom: 0
+                                                                }
+                                                            },
+                                                            tooltips: {
+                                                                mode: "index",
+                                                                intersect: false
+                                                            },
+                                                            hover: {
+                                                                mode: "nearest",
+                                                                intersect: true
+                                                            },
+                                                            pointBackgroundColor: "#fff",
+                                                            pointBorderWidth: "2",
+                                                            scales: {
+                                                                xAxes: [{
+                                                                    display: false,
+                                                                    scaleLabel: {
+                                                                        display: !0}
+                                                                    }],
+                                                                yAxes: [{
+                                                                    display: false,
+                                                                    scaleLabel: {
+                                                                        display: !0}
+                                                                }]
+                                                            }
+                                                        }
+                                                    });
+                                                </script>
                                             </div>
                                             <div class="widget-chart-content text-center mt-5">
                                                 <div class="widget-description mt-0 text-warning">
