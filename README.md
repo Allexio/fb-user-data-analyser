@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Facebook Data Analyser Screenshot][product-screenshot]](https://example.com)
+![Facebook Data Analyser Screenshot][product-screenshot]
 
 This is a tool that analyses data downloadable by a Facebook user and generates a report in a nice, readable format.
 
