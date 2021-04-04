@@ -1,6 +1,6 @@
-from tkinter import Button, ttk, Tk, Label
+from tkinter import ttk, Tk, Label
 from tkinter.filedialog import askopenfilename
-from tkinter.messagebox import showinfo, showerror
+from tkinter.messagebox import showinfo, showerror, askyesno
 from zipfile import ZipFile
 import os
 import time
@@ -94,6 +94,8 @@ def main():
     update_status("Selecting a Facebook data zip file", status, root)
     zip_path = file_picker()
 
+    skip_nudity_check = askyesno("Nudity Check?","Do you want to perform a nudity check on all your photos sent in messages? This task is very time consuming, so if you are sure that there are no compromising pictures, it is recommended that you select \"no\"")
+
     info_text["text"] = "The tool is now running, this can take up to a few minutes, depending on the amount of data and speed of your computer."
 
     update_status("Unzipping Facebook data archive", status, root)
@@ -155,8 +157,11 @@ def main():
     user_data = parse_peer_group(user_data)
     update_progress(progress, 1, root)
 
-    update_status("Scanning photos for unsafe content", status, root)
-    user_data = check_for_nudity(user_data)
+    if skip_nudity_check:
+        update_status("Scanning photos for unsafe content", status, root)
+        user_data = check_for_nudity(user_data)
+    else:
+        user_data["nbr_of_unsafe_photos"] = "Skipped"
     update_progress(progress, 10, root)
 
     update_status("Generating Report", status, root)
@@ -167,8 +172,9 @@ def main():
     profile_picture_mover()
     update_progress(progress, 3, root)
 
-    update_status("Moving Unsafe Pictures", status, root)
-    unsafe_photo_mover(user_data)
+    if skip_nudity_check:
+        update_status("Moving Unsafe Pictures", status, root)
+        unsafe_photo_mover(user_data)
     update_progress(progress, 3, root)
 
     update_status("Deleting Temporary Folder", status, root)
@@ -183,7 +189,6 @@ def update_status(new_status: str, label: Label, gui_root: Tk):
     label["text"] = new_status
     gui_root.update()
     time.sleep(0.5) # wait half a sec so people can actually see the message
-    
 
 def update_progress(progress_bar: ttk.Progressbar, increment: int, gui_root: Tk):
     progress_bar.step(increment)
