@@ -94,10 +94,11 @@ pip install NudeNet
 <!-- USAGE -->
 ## Usage
 
-### With the executable (downloaded release)
+### With the executable (WINDOWS RELEASE)
 
 See the prerequisites section if you haven't already.
 
+0. Download the latest release from github (the release section is located in the tab on the right)
 1. Extract the contents of the release zip file wherever you want.
 2. Go in the resulting folder
 3. Double click on fb_data_analyser.exe
@@ -128,4 +129,4 @@ The HTML/CSS template is distributed under the MIT license, as well as ChartJS a
 
 * [Cool Readme Template](https://raw.githubusercontent.com/othneildrew/Best-README-Template/)
 
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: report_template/assets/images/screenshot.jpg
