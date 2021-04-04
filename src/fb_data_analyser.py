@@ -35,11 +35,15 @@ def zip_opener(zip_path: str):
 
 def validate_uploaded_data():
     """ Checks that the selected directory conforms to what is expected from a facebook data folder. """
-    data_valid = True
-    # TODO: actually implement data validator.
-    if not data_valid:
+    temp_path = os.getcwd() + "/temp"
+    temp_dir_list = os.listdir(temp_path)
+    if "index.html" in temp_dir_list:
         delete_temp()
-        showerror("Error", "Data uploaded is not valid Facebook data.")
+        showerror("Error", "Data uploaded is in HTML format. Please download your Facebook data in JSON format, as this is what this tool requires.")
+        exit(1)
+    if "profile_information" not in temp_dir_list:
+        delete_temp()
+        showerror("Error", "Data uploaded is not valid Facebook data. Please check the README for instructions on how data should be zipped.")
         exit(1)
 
 def delete_temp():
