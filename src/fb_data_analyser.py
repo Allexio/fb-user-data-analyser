@@ -56,15 +56,10 @@ def main():
 
     welcome_message = """Thanks for choosing to use the FB Data Analyser! \n
     This tool requires you to first download your Facebook data from the Facebook website.\n
-    If you have not already done this, you can very easily do it by: 
-    1) going on the Facebook website
-    2) clicking on the drop down arrow top right
-    3) clicking on "settings and privacy"
-    4) clicking on "privacy shortcuts"
-    5) scrolling down to the "your facebook data" section
-    6) clicking on "access my facebook data"
-    7) clicking on the "download my data" link
-    8) select "all data", "JSON file" (photo quality is irrelevant) and click create file.
+    If you have not already done this: 
+    1) Go to "facebook.com/your_information"
+    2) Click on "download my data"
+    3) Select "all data", "JSON file" and click create file.
     
     Facebook will then send you an e-mail when your data is ready to download, simply follow the instructions provided in the e-mail.
     You do not need to unzip this data, the tool will do this for you."""
