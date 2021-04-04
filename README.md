@@ -94,7 +94,7 @@ pip install NudeNet
 <!-- USAGE -->
 ## Usage
 
-### With the executable (WINDOWS RELEASE)
+### With the executable (**Windows only**)
 
 See the prerequisites section if you haven't already.
 
@@ -147,7 +147,7 @@ my-facebook-data.zip
 ## License
 
 The Python code is Distributed under the GPL 3 License. See `LICENSE` for more information.
-The HTML/CSS template is distributed under the MIT license, as well as ChartJS and Bootstrap.
+The HTML/CSS template, ChartJS and Bootstrap are all distributed under the MIT license.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
