@@ -27,10 +27,14 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#Creating-a-Distributable">Creating a Distributable</a></li>
+        <li><a href="#creating-your-own-distributable">Creating a Distributable</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <ul>
+        <li><a href="#with-the-executable">With Executable</a></li>
+        <li><a href="#with-python">With Python</a></li>
+      </ul>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -75,7 +79,9 @@ This project requires the NudeNet pypi library.
 pip install NudeNet
 ```
 
-### Creating your own Distributable (optional)
+### Creating your own Distributable
+
+_This is entirely optional, and is meant for developers, not users_
 
 1. Clone the repo
 2. Move to the root directory of the project
@@ -94,7 +100,9 @@ pip install NudeNet
 <!-- USAGE -->
 ## Usage
 
-### With the executable (**Windows only**)
+### With the executable
+
+(**Windows only**)
 
 See the prerequisites section if you haven't already.
 
@@ -104,7 +112,7 @@ See the prerequisites section if you haven't already.
 3. Double click on fb_data_analyser.exe
 4. If Windows shows you a warning about the fact that you downloaded this from the internet, click show more and then run anyway.
 
-### With python (cloned repo)
+### With Python
 
 If you want to launch the python project, you will need python 3.7+
 
