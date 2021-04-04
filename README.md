@@ -45,7 +45,7 @@ This is a tool that analyses data downloadable by a Facebook user and generates 
 Here's why:
 
 * Facebook keeps a lot of data on people and I want to bring their attention to that
-* The data you can download from Facebook is in JSON format, which isn't very human readable
+* Facebook gives you a way to download the data in HTML format, but the HTML variant is very plain (the data is basically in list form, making any kind of information gleaning *extremely* hard to do).
 
 This is where my tool comes in. It takes your downloaded Facebook data zip file and then generates a nice report in web dashboard format.
 
