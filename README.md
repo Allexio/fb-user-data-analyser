@@ -65,15 +65,15 @@ The dashboard is built on top of a template provided for free by ArchitectUI.
 
 ### Prerequisites
 
+To use this tool, you also need to download your facebook data from [Facebook](https://facebook.com/your_information). This data needs to be downloaded in JSON format and needs to contain everything (quick reminder that my tool runs locally and of course does not upload your data at any time).
+
+For the people who want to use the python version: (if you use the release version, this is not needed!)
+
 This project requires the NudeNet pypi library.
 
 ```sh
 pip install NudeNet
 ```
-
-To use this tool, you also need to download your facebook data from [Facebook](https://facebook.com/your_information). This data needs to be downloaded in JSON format and needs to contain everything (quick reminder that my tool runs locally and of course does not upload your data at any time).
-
-If you want to build this project into an executable for users who do not have Python installed, see the section below.
 
 ### Creating your own Distributable (optional)
 
@@ -94,13 +94,22 @@ If you want to build this project into an executable for users who do not have P
 <!-- USAGE -->
 ## Usage
 
+### With the executable (downloaded release)
+
 See the prerequisites section if you haven't already.
 
-If you have the release version (executable) simply unzip the folder and then double click the executable (the .exe file. There should be only one).
+1. Extract the contents of the release zip file wherever you want.
+2. Go in the resulting folder
+3. Double click on fb_data_analyser.exe
+4. If Windows shows you a warning about the fact that you downloaded this from the internet, click show more and then run anyway.
+
+### With python (cloned repo)
 
 If you want to launch the python project, you will need python 3.7+
 
-1. Clone the repo
+Make sure you have NudeNet installed! (see prerequisites)
+
+1. Clone the rep
 2. Move to the root directory of the project
 3. Launch the project with Python
 
