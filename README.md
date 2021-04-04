@@ -54,26 +54,34 @@ This is where my tool comes in. It takes your downloaded Facebook data zip file 
 This project is built entirely in Python 3. Any version of Python 3 should do.
 The dashboard is built on top of a template provided for free by ArchitectUI.
 
-* [Python](https://python.org)
-* [ArchitectUI](https://architectui.com/)
+* [Python](https://python.org) - Language I used
+* [NudeNet](https://pypi.org/project/NudeNet/) - Nudity detection algorithms
+* [Bootstrap](https://getbootstrap.com/) - UI elements
+* [ChartJS](https://www.chartjs.org/) - Cool graphs
+* [ArchitectUI](https://architectui.com/) - Inspired the initial design
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
-There are no prerequisites for this project. It is based purely on Python, with no external libraries.
-If you want to build this project into an executable for users who do not have Python, see the section below.
+This project requires the NudeNet pypi library.
 
-### Creating a Distributable
+```sh
+pip install NudeNet
+```
+
+To use this tool, you also need to download your facebook data from [Facebook](https://facebook.com/your_information). This data needs to be downloaded in JSON format and needs to contain everything (quick reminder that my tool runs locally and of course does not upload your data at any time).
+
+If you want to build this project into an executable for users who do not have Python installed, see the section below.
+
+### Creating your own Distributable (optional)
 
 1. Clone the repo
 2. Move to the root directory of the project
 3. Install pyinstaller
 
-   ```bat
+   ```sh
    pip install pyinstaller
    ```
 
@@ -86,9 +94,11 @@ If you want to build this project into an executable for users who do not have P
 <!-- USAGE -->
 ## Usage
 
-If you have the release version (executable) simply double click the executable.
+See the prerequisites section if you haven't already.
 
-If you want to launch the python project, you will need python 3.X.
+If you have the release version (executable) simply unzip the folder and then double click the executable (the .exe file. There should be only one).
+
+If you want to launch the python project, you will need python 3.7+
 
 1. Clone the repo
 2. Move to the root directory of the project
@@ -102,7 +112,7 @@ If you want to launch the python project, you will need python 3.X.
 ## License
 
 The Python code is Distributed under the GPL 3 License. See `LICENSE` for more information.
-The HTML/CSS template is distributed under the MIT license.
+The HTML/CSS template is distributed under the MIT license, as well as ChartJS and Bootstrap.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
