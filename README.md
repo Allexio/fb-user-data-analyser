@@ -118,6 +118,31 @@ Make sure you have NudeNet installed! (see prerequisites)
    python ./src/fb_data_analyser.py
    ```
 
+! **WARNING FOR MAC USERS** !
+
+The tool expects a zip file where the contents are directly at the top level of the zip file!
+
+If the facebook data file you download was automatically unzipped, you will have to manually zip the file, by selecting all the contents of the folder.
+
+To clarify, the tree should look like this:
+
+```
+my-facebook-data.zip
+-> about_you
+-> accounts_center
+-> ads_and_businesses
+```
+
+and not like this:
+
+```
+my-facebook-data.zip
+-> my-facebook-data
+  -> about_you
+  -> accounts_center
+  -> ads_and_businesses
+```
+
 <!-- LICENSE -->
 ## License
 
