@@ -69,7 +69,7 @@ The dashboard is built on top of a template provided for free by ArchitectUI.
 
 ### Prerequisites
 
-To use this tool, you need to [download your facebook data from Facebook](https://facebook.com/your_information). This data needs to be downloaded in JSON format and needs to contain everything (quick reminder that my tool runs locally and of course does not upload your data at any time).
+To use this tool, you need to [download your facebook data from Facebook](https://www.facebook.com/dyi/). This data needs to be downloaded in JSON format and needs to contain everything (quick reminder that my tool runs locally and of course does not upload your data at any time).
 
 
 ### Creating your own Distributable
