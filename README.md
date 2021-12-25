@@ -69,15 +69,8 @@ The dashboard is built on top of a template provided for free by ArchitectUI.
 
 ### Prerequisites
 
-To use this tool, you also need to [download your facebook data from Facebook](https://facebook.com/your_information). This data needs to be downloaded in JSON format and needs to contain everything (quick reminder that my tool runs locally and of course does not upload your data at any time).
+To use this tool, you need to [download your facebook data from Facebook](https://facebook.com/your_information). This data needs to be downloaded in JSON format and needs to contain everything (quick reminder that my tool runs locally and of course does not upload your data at any time).
 
-For the people who want to use the python version: (if you use the release version, this is not needed!)
-
-This project requires the NudeNet pypi library.
-
-```sh
-pip install NudeNet
-```
 
 ### Creating your own Distributable
 
@@ -116,7 +109,11 @@ See the prerequisites section if you haven't already.
 
 If you want to launch the python project, you will need python 3.7+
 
-Make sure you have NudeNet installed! (see prerequisites)
+The Python version of this project also requires the NudeNet pypi library.
+
+```sh
+pip install NudeNet
+```
 
 1. Clone the rep
 2. Move to the root directory of the project
